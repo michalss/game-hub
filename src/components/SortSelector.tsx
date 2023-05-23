@@ -8,12 +8,12 @@ interface Props {
 
 export const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
   const sortOrders = [
-    { value: "", lable: "Relevance" },
-    { value: "-added", lable: "Date added" },
-    { value: "name", lable: "Name" },
-    { value: "-released", lable: "Release data" },
-    { value: "-metacritic", lable: "Popularity" },
-    { value: "-rating", lable: "Average rating" },
+    { value: "", label: "Relevance" },
+    { value: "-added", label: "Date added" },
+    { value: "name", label: "Name" },
+    { value: "-released", label: "Release data" },
+    { value: "-metacritic", label: "Popularity" },
+    { value: "-rating", label: "Average rating" },
   ];
 
   const currentSortOrder = sortOrders.find((f) => f.value === sortOrder);
@@ -21,7 +21,7 @@ export const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-        Order by: {currentSortOrder?.lable || "Relevance"}
+        Order by: {currentSortOrder?.label || "Relevance"}
       </MenuButton>
       <MenuList>
         {sortOrders.map((sort) => (
@@ -30,7 +30,7 @@ export const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
             key={sort.value}
             value={sort.value}
           >
-            {sort.lable}
+            {sort.label}
           </MenuItem>
         ))}
       </MenuList>
