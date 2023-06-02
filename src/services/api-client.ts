@@ -20,8 +20,15 @@ class ApiClient<T> {
     this.endpoint = endpoint;
   }
 
-  getALL = (config: AxiosRequestConfig) =>
-    http.get<FetchResponse<T>>(this.endpoint, config).then((res) => res.data);
+  getALL = (config: AxiosRequestConfig) => {
+    return http
+      .get<FetchResponse<T>>(this.endpoint, config)
+      .then((res) => res.data);
+  };
+
+  get = (id: number | string) => {
+    return http.get<T>(`${this.endpoint}/${id}`).then((res) => res.data);
+  };
 
   // post = (config: AxiosRequestConfig) =>
   //   axios.post<FetchResponse<T>>(this.endpoint, config).then((res) => res.data);
